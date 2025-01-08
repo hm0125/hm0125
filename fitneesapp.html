@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>減肥產品創新專案</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #555;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            padding: 20px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            color: #00796b;
+        }
+        .section p {
+            font-size: 16px;
+        }
+        .progress {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        .progress input {
+            width: 80%;
+            padding: 8px;
+            font-size: 16px;
+        }
+        .progress button {
+            width: 15%;
+            padding: 8px;
+            background-color: #00796b;
+            color: white;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+        .progress button:hover {
+            background-color: #004d40;
+        }
+        .reminder {
+            margin: 20px 0;
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            background-color: #00796b;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact-form button:hover {
+            background-color: #004d40;
+        }
+        .recipe-section, .exercise-section {
+            background-color: #f1f8e9;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        .goal-section, .share-section, .motivation-section {
+            background-color: #f0f4c3;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .buy-section {
+            background-color: #fff9c4;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .buy-section button {
+            background-color: #00796b;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .buy-section button:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>減肥產品創新專案</h1>
+    <p>讓我們幫助你達到理想體重，實現健康生活</p>
+</header>
+
+<nav>
+    <a href="#intro">產品介紹</a>
+    <a href="#progress">進度追蹤</a>
+    <a href="#reminder">每日提醒</a>
+    <a href="#recipe">健康食譜</a>
+    <a href="#exercise">運動計劃</a>
+    <a href="#goal">目標設定</a>
+    <a href="#share">社交分享</a>
+    <a href="#motivation">每日激勵</a>
+    <a href="#faq">常見問題</a>
+    <a href="#buy">購買產品</a>
+    <a href="#contact">聯絡我們</a>
+</nav>
+
+<div class="main-content">
+    <!-- 產品介紹 -->
+    <section id="intro" class="section">
+        <h2>產品介紹</h2>
+        <p>我們的減肥產品結合了最新的科技和天然成分，旨在幫助你提升代謝、減少脂肪，並保持良好的健康狀態。無副作用，安全有效，適合各類人群。</p>
+    </section>
+
+    <!-- 進度追蹤 -->
+    <section id="progress" class="section">
+        <h2>我的減肥進度</h2>
+        <p>請記錄您的當前體重和目標，並跟蹤您的減肥進程：</p>
+        <div class="progress">
+            <input type="number" id="currentWeight" placeholder="輸入當前體重（kg）" />
+            <button onclick="updateProgress()">更新</button>
+        </div>
+        <p id="progressMessage"></p>
+    </section>
+
+    <!-- 目標設定 -->
+    <section id="goal" class="section goal-section">
+        <h2>設定我的減肥目標</h2>
+        <p>設定您的目標體重和達成日期，並跟蹤您的進度：</p>
+        <label for="goalWeight">目標體重：</label>
+        <input type="number" id="goalWeight" placeholder="輸入目標體重（kg）" />
+        <label for="goalDate">達成日期：</label>
+        <input type="date" id="goalDate" />
+        <button onclick="setGoal()">設定目標</button>
+        <p id="goalMessage"></p>
+    </section>
+
+    <!-- 每日激勵 -->
+    <section id="motivation" class="section motivation-section">
+        <h2>每日激勵語</h2>
+        <p id="motivationalMessage">今天的你比昨天更接近你的目標！加油！</p>
+    </section>
+
+    <!-- 社交分享 -->
+    <section id="share" class="section share-section">
+        <h2>與朋友分享</h2>
+        <p>讓您的朋友一起加入，分享您的進步並一起達成目標！</p>
+        <button onclick="shareProgress()">分享進度</button>
+    </section>
+
+    <!-- 購買產品 -->
+    <section id="buy" class="section buy-section">
+        <h2>購買我們的減肥產品</h2>
+        <p>現在就開始使用我們的減肥產品，輕鬆達成您的理想體重！</p>
+        <button onclick="window.location.href='https://www.example.com/buy-now';">立即購買</button>
+    </section>
+
+    <!-- 常見問題 -->
+    <section id="faq" class="section">
+        <h2>常見問題</h2>
+        <ul>
+            <li><strong>這個減肥產品有副作用嗎？</strong> 
+                本產品由天然成分製成，無副作用，適合大多數人群。但是，如果您有特殊健康狀況，建議在使用前咨詢醫生。
+            </li>
+            <li><strong>我多久能看到效果？</strong> 
+                每個人的效果有所不同，一般建議持續使用 2-4 週後可見初步效果。配合健康飲食和運動，效果更為明顯。
+            </li>
+            <li><strong>這個產品適合所有年齡段的人使用嗎？</strong> 
+                我們的產品適合18歲以上的成人使用。如果您是孕婦、哺乳期婦女，或有特殊健康狀況的人群，請在使用前先諮詢專業醫生。
+            </li>
+            <li><strong>如何使用這個產品才能達到最佳效果？</strong>
+                使用本產品時，建議每天按建議劑量服用，同時保持均衡飲食和定期運動。為了更好地達到減肥效果，我們建議配合專業的運動計劃和飲食計劃。
+            </li>
+            <li><strong>如果我對某些成分過敏，能使用這個產品嗎？</strong>
+                我們的產品標明所有成分，建議您在使用前檢查成分表。如果對某些成分過敏，請停止使用並諮詢醫生。
+            </li>
+            <li><strong>如果我使用後沒有達到預期效果怎麼辦？</strong> 
+                我們提供滿意保證，若您在使用產品後沒有達到預期效果，請與我們的客服聯絡，我們會根據情況提供退款或替代方案。
+            </li>
+            <li><strong>我能在任何時間服用這個減肥產品嗎？</strong> 
+                最佳的服用時間是早晨或餐後。這樣有助於提高代謝效果，但具體時間可以根據您的個人習慣調整。
+            </li>
+            <li><strong>這個產品會讓我感到饑餓或焦慮嗎？</strong> 
+                我們的產品含有天然成分，旨在幫助控制食欲並平衡血糖水平，不會讓您感到過度饑餓或焦慮。若有任何不適，請停止使用並咨詢醫生。
+            </li>
+            <li><strong>可以和其他減肥產品一起使用嗎？</strong> 
+                若您正在使用其他減肥產品，建議在使用本產品前咨詢醫生或營養師，以確保沒有相互作用。
+            </li>
+            <li><strong>產品的保質期有多久？</strong> 
+                我們的產品保質期為兩年，請儲存於陰涼乾燥處，避免高溫和潮濕的環境。
+            </li>
+            <li><strong>我是否可以國際訂購這款產品？</strong> 
+                我們目前提供國際訂購服務，您可以在結帳時選擇國際配送選項。請注意，國際訂單可能需要額外的運費和關稅。
+            </li>
+            <li><strong>產品有沒有使用限制或禁忌？</strong> 
+                本產品適合大多數成年人使用，但如果您有高血壓、糖尿病等慢性病，或正在服用藥物，請先諮詢醫生再使用。
+            </li>
+            <li><strong>如何聯繫客服或申請退款？</strong> 
+                若您有任何問題或想了解更多產品信息，可以通過網站上的聯繫我們頁面與我們聯繫。我們的客服會在24小時內回應您的問題。
+            </li>
+        </ul>
+    </section>
+
+    <!-- 聯絡我們 -->
+    <section id="contact" class="section contact-form">
+        <h2>聯絡我們</h2>
+        <form>
+            <input type="text" id="name" placeholder="姓名" required />
+            <input type="email" id="email" placeholder="電子郵件" required />
+            <textarea id="message" placeholder="留言內容" rows="4" required></textarea>
+            <button type="submit">發送訊息</button>
+        </form>
+    </section>
+</div>
+
+<footer>
+    <p>© 2025 減肥產品創新專案. 版權所有.</p>
+</footer>
+
+<script>
+    function updateProgress() {
+        var currentWeight = document.getElementById('currentWeight').value;
+        if (currentWeight) {
+            document.getElementById('progressMessage').innerText = '您的當前體重是：' + currentWeight + 'kg';
+        } else {
+            document.getElementById('progressMessage').innerText = '請輸入有效的體重數據。';
+        }
+    }
+
+    function setGoal() {
+        var goalWeight = document.getElementById('goalWeight').value;
+        var goalDate = document.getElementById('goalDate').value;
+        if (goalWeight && goalDate) {
+            document.getElementById('goalMessage').innerText = '您的目標體重設定為：' + goalWeight + 'kg，達成日期：' + goalDate;
+        } else {
+            document.getElementById('goalMessage').innerText = '請填寫完整的目標體重和達成日期。';
+        }
+    }
+
+    function shareProgress() {
+        alert("您的減肥進度已分享！讓朋友一起加入吧！");
+    }
+</script>
+
+</body>
+</html>
